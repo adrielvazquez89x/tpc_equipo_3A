@@ -1,13 +1,23 @@
-﻿/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-
-
-/* Set widths on the form inputs since otherwise they're 100% wide */
-
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+﻿
+/*@media screen and (min-width: 768px) {
     .body-content {
         padding: 0;
     }
+}*/
+
+
+.nav-pills .nav-link {
+    color: #333;
+    background-color: #f8f9fa;
+    border-radius: 0;
 }
+
+    .nav-pills .nav-link.active {
+        background-color: #0d6efd;
+        color: #fff;
+    }
+
+    .nav-pills .nav-link:hover {
+        background-color: #e9ecef;
+        color: #0d6efd;
+    }

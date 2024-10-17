@@ -15,6 +15,15 @@ namespace tpc_equipo3a_inmobiliaria
     {
 
         /// <summary>
+        /// Control RepeaterSidebar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterSidebar;
+
+        /// <summary>
         /// Control MainContent.
         /// </summary>
         /// <remarks>

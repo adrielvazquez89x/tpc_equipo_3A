@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,15 +13,14 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
@@ -40,7 +39,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                <a class="navbar-brand" runat="server" href="~/">InmobiliariaC#</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -54,17 +53,51 @@
                 </div>
             </div>
         </nav>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                Furer low cast
-            </footer>
+
+        <div class="container-fluid">
+            <div class="row">
+                <%-- Sidebar --%>
+                <div class="col-auto col-md-3 col-lg-2 px-sm-2 px-0 bg-light">
+                    <ul class="nav flex-column nav-pills mb-auto">
+                        <%-- Enlaces  --%>
+                        <asp:Repeater ID="RepeaterSidebar" runat="server">
+                            <ItemTemplate>
+                                <li class="nav-item">
+                                    <a href='<%# Eval("Url") %>' class="nav-link d-flex align-items-center px-3 py-2 <%# Eval("Activo").ToString() == "True" ? "active" : "" %>">
+                                        <i class='bi <%# Eval("Icono") %> me-2 fs-5'></i>
+                                        <span class="d-none d-sm-inline"><%# Eval("Nombre") %></span>
+                                    </a>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <hr>
+                        <%-- Sarasa --%>
+                        <li class="nav-item">
+                            <a href="/settings" class="nav-link d-flex align-items-center px-3 py-2">
+                                <i class='bi bi-gear me-2 fs-5'></i>
+                                <span class="d-none d-sm-inline">Otra cosa</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <%-- Contenido Principal --%>
+                <div class="col body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <hr />
+                    <footer>
+                        Furer low cast
+           
+                    </footer>
+                </div>
+            </div>
         </div>
     </form>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
+
 </body>
 </html>
