@@ -57,7 +57,7 @@
         <div class="container-fluid">
             <div class="row">
                 <%-- Sidebar --%>
-                <div class="col-auto col-md-3 col-lg-2 px-sm-2 px-0 bg-light">
+                <div id="sidebar" runat="server" class="col-auto col-md-3 col-lg-2 px-sm-2 px-0 bg-light vh-100">
                     <ul class="nav flex-column nav-pills mb-auto">
                         <%-- Enlaces  --%>
                         <asp:Repeater ID="RepeaterSidebar" runat="server">
@@ -86,9 +86,10 @@
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                     <hr />
+
+                    <%-- Footer --%>
                     <footer>
                         Furer low cast
-           
                     </footer>
                 </div>
             </div>

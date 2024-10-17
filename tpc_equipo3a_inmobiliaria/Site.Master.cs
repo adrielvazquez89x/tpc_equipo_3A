@@ -22,6 +22,11 @@ namespace tpc_equipo3a_inmobiliaria
                 RepeaterSidebar.DataSource = enlaces;
                 RepeaterSidebar.DataBind();
             }
+
+            if (Request.Url.AbsolutePath.Contains("login") || Request.Url.AbsolutePath.Contains("Login"))
+            {
+                sidebar.Visible = false;
+            }
         }
     }
 }
