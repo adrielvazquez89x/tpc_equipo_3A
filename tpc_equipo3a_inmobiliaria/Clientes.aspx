@@ -24,8 +24,7 @@
                 <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" placeholder="DNI"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="txtUbicacion">Ubicación</label>
-                <asp:TextBox ID="txtUbicacion" runat="server" CssClass="form-control" placeholder="Ubicación"></asp:TextBox>
+                <label>Ubicación</label>
             </div>
             <div class="form-group">
                 <label for="txtProvincia">Provincia</label>
@@ -36,6 +35,10 @@
                 <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control" placeholder="Localidad"></asp:TextBox>
             </div>
             <div class="form-group">
+                <label for="txtBarrio">Barrio</label>
+                <asp:TextBox ID="TxtBarrio" runat="server" CssClass="form-control" placeholder="Barrio"></asp:TextBox>
+            </div>
+            <div class="form-group">
                 <label for="txtCalle">Calle</label>
                 <asp:TextBox ID="txtCalle" runat="server" CssClass="form-control" placeholder="Calle"></asp:TextBox>
             </div>
@@ -44,8 +47,8 @@
                 <asp:TextBox ID="txtCP" runat="server" CssClass="form-control" placeholder="Código Postal"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="txtNumero">Número</label>
-                <asp:TextBox ID="txtNumero" runat="server" CssClass="form-control" placeholder="Número"></asp:TextBox>
+                <label for="txtAltura">Altura</label>
+                <asp:TextBox ID="txtAltura" runat="server" CssClass="form-control" placeholder="Altura"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary"  />

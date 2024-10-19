@@ -3,6 +3,7 @@ using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -11,10 +12,11 @@ namespace Negocio
 {
     public class AgentesNegocio
     {
+
+        List<Agente> lista = new List<Agente>();
+        AccesoDatos datos = new AccesoDatos();
         public List<Agente> Listar(string id = "")
         {
-            List<Agente> lista = new List<Agente>();
-            AccesoDatos datos = new AccesoDatos();
 
             try
             {
@@ -50,7 +52,6 @@ namespace Negocio
 
                     lista.Add(aux);
                 }
-
                 return lista;
             }
             catch (Exception ex)
@@ -62,6 +63,35 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void Agregar(Agente agente)
+        {
+            try
+            {
+                datos.setearConsulta("INSERT INTO Agentes (IdPropiedad, IdCliente, RolGerente, Nombre, Apellido, Celular, Email, Antiguedad, Estado,"+ 
+                    "Experiencia, Especialidad, Comision, Comentarios) OUTPUT INSERTED.IdAgente "+
+                    "VALUES (@IdPropiedad, @IdCliente, @RolGerente, @Nombre, @Apellido, @Celular, @Email, @Antiguedad, @Estado, @Experiencia, @Especialidad, @Comision, @Comentarios);");
+
+                datos.setearParametro("@IdPropiedad", agente.IdPropiedad);
+                datos.setearParametro("@RolGerente", agente.RolGerente);
+                //ETC, igual esto se va a ir modificando...
+
+                agente.IdAgente = datos.ejecutarAccionScalar();
+
+
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
     }
 }
 

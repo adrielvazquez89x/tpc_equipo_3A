@@ -20,8 +20,7 @@ namespace AccesoADatos
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection($"server=.\\SQLEXPRESS; database = IMOBILIARIA_DB; integrated security = true");
-            //conexion = new SqlConnection("server=DESKTOP-65G8FJS\\SQLEXPRESS; database = CATALOGO_WEB_DB; integrated security = true");
+            conexion = new SqlConnection($"server=.\\SQLEXPRESS04; database = IMOBILIARIA_DB; integrated security = true");
             comando = new SqlCommand();
         }
 
