@@ -11,7 +11,7 @@ namespace tpc_equipo3a_inmobiliaria
 {
 
 
-    public partial class Agentes
+    public partial class Inmuebles
     {
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace tpc_equipo3a_inmobiliaria
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// dgvAgentes control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvAgentes;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

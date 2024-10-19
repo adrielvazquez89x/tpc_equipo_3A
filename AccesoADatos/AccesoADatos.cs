@@ -7,54 +7,42 @@ using System.Threading.Tasks;
 
 namespace AccesoADatos
 {
-    public class AccesoADatos
+    public class AccesoDatos
     {
-        private SqlConnection _connection;
+        private SqlConnection conexion;
+        private SqlCommand comando;
+        private SqlDataReader lector;
 
-        private SqlCommand _command;
-
-        private SqlDataReader _reader;
-
-        public SqlDataReader Reader
+        public SqlDataReader Lector
         {
-            get { return _reader; }
+            get { return lector; }
         }
 
-        public AccesoADatos()
+        public AccesoDatos()
         {
-            _connection = new SqlConnection($"server=.\\SQLEXPRESS04; database = INMOBILIARIA_DB; integrated security = true");
-
-            _command = new SqlCommand();
+            conexion = new SqlConnection($"server=.\\SQLEXPRESS; database = IMOBILIARIA_DB; integrated security = true");
+            //conexion = new SqlConnection("server=DESKTOP-65G8FJS\\SQLEXPRESS; database = CATALOGO_WEB_DB; integrated security = true");
+            comando = new SqlCommand();
         }
 
-        public void setQuery(string query)
+        public void setearConsulta(string Consulta)
         {
-            _command.CommandType = System.Data.CommandType.Text;
-            _command.CommandText = query;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = Consulta;
         }
 
-        public void executeRead()
+        public void setearParametro(string nombre, object valor)
         {
-            _command.Connection = _connection;
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
+        public void ejecutarLectura()
+        {
+            comando.Connection = conexion;
             try
             {
-                _connection.Open();
-                _reader = _command.ExecuteReader();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        public void executeAction()
-        {
-            _command.Connection = _connection;
-            try
-            {
-                _connection.Open();
-                _command.ExecuteNonQuery();
+                conexion.Open();
+                lector = comando.ExecuteReader();
             }
             catch (Exception ex)
             {
@@ -63,33 +51,47 @@ namespace AccesoADatos
             }
         }
 
-        public int getIdEcalar()
+        public void ejecutarAccion()
         {
-            _command.Connection = _connection;
-            _connection.Open();
-            return (int)_command.ExecuteScalar();
-        }
-
-
-        public void setParameter(string name, object value)
-        {
-            _command.Parameters.AddWithValue(name, value);
-        }
-
-        public void clearParams()
-        {
-            _command.Parameters.Clear();
-        }
-
-        public void closeConnection()
-        {
-            if (_reader != null)
+            comando.Connection = conexion;
+            try
             {
-                _reader.Close();
-                _connection.Close();
-            }
+                conexion.Open();
+                comando.ExecuteNonQuery();
 
-            _connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
+
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                //Ejecuta la consulta escalar y convierte el resultado a un entero
+                return int.Parse(comando.ExecuteScalar().ToString());
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void cerrarConexion()
+        {
+            if (lector != null)
+            {
+                lector.Close();
+                conexion.Close();
+            }
+        }
+
     }
 }

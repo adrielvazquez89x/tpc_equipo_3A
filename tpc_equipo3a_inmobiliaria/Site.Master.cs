@@ -16,7 +16,8 @@ namespace tpc_equipo3a_inmobiliaria
                 {
                     new Enlace { Nombre = "Inicio", Url = "Default.aspx", Icono ="bi-house", Activo= false },
                     new Enlace { Nombre = "Inmuebles", Url = "Inmuebles.aspx", Icono="bi-building", Activo= false  },
-                    new Enlace { Nombre = "Agentes", Url = "Agentes.aspx", Icono="bi-people", Activo= false  }
+                    new Enlace { Nombre = "Agentes", Url = "Agentes.aspx", Icono="bi-person-check", Activo= false  },
+                    new Enlace { Nombre = "Clientes", Url = "Clientes.aspx", Icono="bi-people", Activo = false}
                 };
 
                 RepeaterSidebar.DataSource = enlaces;

@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Agentes.aspx" />
+    <Content Include="Clientes.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -117,7 +118,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Inmuebles.aspx" />
+    <Content Include="Propiedades.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -168,6 +169,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,12 +186,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Inmuebles.aspx.cs">
-      <DependentUpon>Inmuebles.aspx</DependentUpon>
+    <Compile Include="Propiedades.aspx.cs">
+      <DependentUpon>Propiedades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inmuebles.aspx.designer.cs">
-      <DependentUpon>Inmuebles.aspx</DependentUpon>
+    <Compile Include="Propiedades.aspx.designer.cs">
+      <DependentUpon>Propiedades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -255,6 +263,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{9f3e9f72-c136-4ede-b1b2-b8efab43988b}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{9b1c9269-ec22-4bdf-9627-0671baac057f}</Project>
+      <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
